@@ -1,5 +1,5 @@
 var playerName = window.prompt("Please enter your robot's name");
-var promptFight = window.prompt("Would you like to FIGHT or BRIBE?");
+
 var playerHealth = 100;
 var playerAttack = 10;
 
@@ -11,8 +11,8 @@ var enemyAttack = 12;
 
 var fight = function() {
     window.alert("Welcome to Robot Gladiators");
-    
-    promptFight.toUpperCase();
+    var promptFight = window.prompt("Would you like to FIGHT or BRIBE?");
+    promptFight = promptFight.toUpperCase(); //converts players inputt to uppercase
     if(promptFight){
         if(promptFight === "FIGHT"){
             enemyHealth = enemyHealth - playerAttack;
@@ -37,13 +37,8 @@ var fight = function() {
         window.alert("Does not compute! Please enter a valid option!");
     }
     }
-    
-    
-    
-    
-    
 };
-
+fight();
 // if (enemyHealth <= 0) {
 //     window.alert(enemyName + " has died!");
 
