@@ -9,10 +9,10 @@ var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-
+window.alert("Welcome to Robot Gladiators");
 
 var fight = function(enemyName) {
-    window.alert("Welcome to Robot Gladiators");
+    while(enemyHealth > 0){
     var promptFight = window.prompt("Would you like to FIGHT or BRIBE?");
     promptFight = promptFight.toUpperCase(); //converts players input to uppercase
     if(promptFight){
@@ -47,11 +47,13 @@ var fight = function(enemyName) {
         window.alert("Does not compute! Please enter a valid option!");
     }
     }
+}
 };
-fight(enemyNames);
 
 for(i = 0; i < enemyNames.length; i++){
-    fight(enemyNames[i]);
+    var pickedEnemyName = enemyNames[i];
+    enemyHealth = 50;
+    fight(pickedEnemyName);
 }
 
 
