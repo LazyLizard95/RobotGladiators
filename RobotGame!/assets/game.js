@@ -12,6 +12,7 @@ var enemyAttack = 12;
 window.alert("Welcome to Robot Gladiators");
 
 var fight = function(enemyName) {
+    if (playerHealth > 0) {
     while(enemyHealth > 0){
     var promptFight = window.prompt("Would you like to FIGHT or BRIBE?");
     promptFight = promptFight.toUpperCase(); //converts players input to uppercase
@@ -24,6 +25,8 @@ var fight = function(enemyName) {
         //check enemy hp
         if (enemyHealth <= 0){
             window.alert(enemyName + " has died!");
+            playerMoney = playerMoney + 15;
+            break;
         } else {
             window.alert(enemyName + " still has " + enemyHealth + " health left.");
         }
@@ -35,19 +38,22 @@ var fight = function(enemyName) {
  );       
     }else if (promptFight === "BRIBE"){
         //confirm player decision
-        var confirmBribe = window.confirm("After groveling to " + enemyName + " it's been decided that the amount of 2.00 will provide mercy. Is this okay?")
-        if (confirmBribe) {
-        window.alert(playerName + " has paid off " + enemyName + "!");
+        var confirmBribe = window.confirm("After groveling to " + enemyName + " it's been decided that the amount of 10.00 will provide mercy. Is this okay?")
+        if (confirmBribe >= playerMoney) {
+            window.alert(playerName + " has paid off " + enemyName + "!");
         //Remove money from player
-        playerMoney = playerMoney - 2;
-        } else{
+        playerMoney = playerMoney - 10;
+        console.log("playermoney", playerMoney);
+        break;
+    } else{
             fight();
         }
     } else {
         window.alert("Does not compute! Please enter a valid option!");
     }
     }
-}
+    }
+} else {window.alert(playerName + " has died!");}
 };
 
 for(i = 0; i < enemyNames.length; i++){
