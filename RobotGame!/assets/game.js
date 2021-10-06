@@ -9,11 +9,20 @@ var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-window.alert("Welcome to Robot Gladiators");
+
 
 var fight = function(enemyName) {
     if (playerHealth > 0) {
-    while(enemyHealth > 0){
+        window.alert("Welcome to Robot Gladiators, " + playerName + " Round: " + ( i + 1) + " You have " + playerHealth + " HitPoints remaining!");
+    //pick new enemy to fight based on index in array
+    var pickedEnemyName = enemyNames[i];
+    //reset enemyhealth before starting a fight
+    enemyHealth = 50;
+    //debugger will pause the script to check whats going on
+    debugger;
+    //pass the pickedEnemyName var into the fight function. It wil assume the value of the enemyName parameter. 
+    
+        while(enemyHealth > 0){
     var promptFight = window.prompt("Would you like to FIGHT or BRIBE?");
     promptFight = promptFight.toUpperCase(); //converts players input to uppercase
     if(promptFight){
@@ -43,7 +52,7 @@ var fight = function(enemyName) {
             window.alert(playerName + " has paid off " + enemyName + "!");
         //Remove money from player
         playerMoney = playerMoney - 10;
-        console.log("playermoney", playerMoney);
+        console.log("playermoney: ", playerMoney);
         break;
     } else{
             fight();
