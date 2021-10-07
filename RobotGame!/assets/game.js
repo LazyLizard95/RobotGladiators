@@ -27,7 +27,10 @@ var startGame = function() {
 }
 //end game function that displays stats.
 var endGame = function(){
-    window.alert("After hauling " + playerName + " to the scrapyard you took some time to reflect.");
+    //if player is still alive, player wins
+    if (playerHealth > 0){
+        window.alert("Covered in dents, scratches, and oil your malicious mechanist ")
+    }window.alert("After hauling " + playerName + " to the scrapyard you took some time to reflect.");
 };
 
 var fight = function(enemyName) {
