@@ -25,11 +25,40 @@ var startGame = function() {
     }
   }
 }
+
+var shop = function(){
+    var shopMode = window.prompt("A greasey man that smells like moldy cheetos approaches. He offers to REPAIR your robot or UPGRADE it. If you wish to leave, RUN he seems spooky.")
+    shopMode = shopMode.toLowerCase();
+    switch (shopMode){
+        case "repair":
+            window.alert("A few rolls of ducktape, dollops of chewed gum and unwelcomed flirtation repairs your robot by 20 health at the cost of 10 buckaroos");
+        playerHealth = playerHealth + 20;
+        playerMoney = playerMoney - 10;
+        break;
+
+        case "upgrade":
+            window.alert("You gained an understanding of the repairmans ways. Together you composed a fire distrack for your robot. Plus 5 attack only at the cost of ten buckaroos")
+        playerAttack = playerAttack + 5;
+        playerMoney = playerMoney - 10;
+        break;
+
+        case "run":
+            window.alert("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!!!");
+            break;
+            default:
+                window.alert("Maybe later, lets do something else instead!");
+                shop();
+                break;
+        
+        }
+
+};
+
 //end game function that displays stats.
 var endGame = function(){
     //if player is still alive, player wins
     if (playerHealth > 0){
-        window.alert("Covered in dents, scratches, and oil your malicious mechanist ")
+        window.alert("Covered in dents, scratches, and oil your malicious mechanist emerges as the leader of the new world order!! ")
     }window.alert("After hauling " + playerName + " to the scrapyard you took some time to reflect.");
 };
 
@@ -39,7 +68,13 @@ var fight = function(enemyName) {
     debugger;
     //pass the pickedEnemyName var into the fight function. It wil assume the value of the enemyName parameter. 
     while(enemyHealth > 0){
-    var promptFight = window.prompt("Would you like to FIGHT or BRIBE?");
+    if (i < enemyNames.length - 1){
+        var storeConfirm = window.confirm("Good work! Do you wish to spend your ill gotten gains?")
+        if(storeConfirm){
+        shop();
+        }
+    }
+        var promptFight = window.prompt("Would you like to FIGHT or BRIBE?");
     promptFight = promptFight.toUpperCase(); //converts players input to uppercase
     if(promptFight){
         if(promptFight === "FIGHT"){
@@ -77,6 +112,7 @@ var fight = function(enemyName) {
         window.alert("Does not compute! Please enter a valid option!");
     }
     }
-}
+
+    }
 };  
 startGame(); //initiate game
